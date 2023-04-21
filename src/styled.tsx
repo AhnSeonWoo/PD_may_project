@@ -15,6 +15,7 @@ export const Navbar = styled.nav`
   display: flex;
   justify-content: space-around;
   margin-top: 10px;
+  padding: 0 30px 0 30px;
   & > button {
     padding-bottom: 2px;
     border: none;

@@ -26,9 +26,104 @@ export const QNA = () => {
           );
         })}
       </ButtonContainer>
+      <Titlebox>제목</Titlebox>
+      <Titleinput></Titleinput>
+      <Detailbox>내용</Detailbox>
+      <Detailinput></Detailinput>
+      <Namebox>이름</Namebox>
+      <Nameinput></Nameinput>
+      <Numberbox>휴대폰 번호</Numberbox>
+      <Numberinput1></Numberinput1>
+      <Numberinput2></Numberinput2>
+      <Emailbox>이메일 주소</Emailbox>
+      <Emailinput></Emailinput>
     </QNAcontainer>
   );
 };
+
+const Emailbox = styled.div`
+  display: flex;
+  padding-left: 30px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+`;
+
+const Emailinput = styled.input`
+  width: 88%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+`;
+
+const Numberinput1 = styled.input`
+  width: 18%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+  margin-right: 5%;
+`;
+
+const Numberinput2 = styled.input`
+  width: 65%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+`;
+
+const Numberbox = styled.div`
+  display: flex;
+  padding-left: 30px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+`;
+
+const Nameinput = styled.input`
+  width: 88%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+`;
+
+const Namebox = styled.div`
+  display: flex;
+  padding-left: 30px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+`;
+
+const Detailinput = styled.input`
+  width: 88%;
+  height: 100px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+`;
+
+const Detailbox = styled.div`
+  display: flex;
+  padding-left: 30px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+`;
+
+const Titleinput = styled.input`
+  width: 88%;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 0px;
+  border: 1px solid;
+`;
+
+const Titlebox = styled.div`
+  display: flex;
+  padding-left: 30px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+`;
 
 const QNAcontainer = styled.div`
   margin-top: 16px;

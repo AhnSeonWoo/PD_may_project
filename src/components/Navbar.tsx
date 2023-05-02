@@ -32,7 +32,7 @@ const NavButton = ({
     (children === "Q&A" && clicked === 2) ||
     (children === "문의내역" && clicked === 3)
   ) {
-    buttonStyle = { borderBottom: "3px solid #f00" };
+    buttonStyle = { borderBottom: "3px solid rgb(221, 217, 195)" };
   }
 
   const tagToNum: StringNumberObject = {

@@ -70,7 +70,7 @@ const ButtonContainer = styled.div`
 
 const QuestionButton = styled.button`
   border: none;
-  background-color: red;
+  background-color: #9d896a;
   color: white;
   width: 18%;
   height: 40px;
@@ -117,19 +117,41 @@ const CategoryDropDown = () => {
         <DropDownBoxWrap>
           <DropDownContainer>
             <>
-              <ListItem onClick={onOptionSisulClicked("fun city", 1)}>
-                fun city
+              <ListItem onClick={onOptionSisulClicked("PARADISE CITY", 1)}>
+                PARADISE CITY
               </ListItem>
-              <ListItem onClick={onOptionSisulClicked("알앤비", 2)}>
-                알앤비
+              <ListItem onClick={onOptionSisulClicked("HOTEL PARADISE", 2)}>
+                HOTEL PARADISE
               </ListItem>
-              <ListItem onClick={onOptionSisulClicked("랩", 3)}>랩</ListItem>
-              <ListItem onClick={onOptionSisulClicked("락", 4)}>락</ListItem>
-              <ListItem onClick={onOptionSisulClicked("트로트", 5)}>
-                트로트
+              <ListItem onClick={onOptionSisulClicked("HOTEL ART PARADISO", 3)}>
+                HOTEL ART PARADISO
               </ListItem>
-              <ListItem onClick={onOptionSisulClicked("인디", 6)}>
-                인디
+              <ListItem onClick={onOptionSisulClicked("CASINO", 4)}>
+                CASINO
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("CIMER", 5)}>
+                CIMER
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("CHROMA", 6)}>
+                CHROMA
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("WONDERBOX", 7)}>
+                WONDERBOX
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("PLAZA", 8)}>
+                PLAZA
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("PARADISE ART SPACE", 9)}>
+                PARADISE ART SPACE
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("STUDIO PARADISE", 10)}>
+                STUDIO PARADISE
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("GROUP & WEDDINGS", 11)}>
+                GROUP & WEDDINGS
+              </ListItem>
+              <ListItem onClick={onOptionSisulClicked("MEMBERSHIP", 12)}>
+                MEMBERSHIP
               </ListItem>
             </>
           </DropDownContainer>
@@ -211,7 +233,8 @@ const ListItem = styled.li`
   border-width: 0px 1px 1px 1px;
 
   :hover {
-    background-color: whitesmoke;
+    background-color: #9d896a;
     border: 1px solid gray;
+    color: white;
   }
 `;

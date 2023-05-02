@@ -1,11 +1,31 @@
 import styled from "styled-components";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const QNA = () => {
+  const btnList = ["문의", "칭찬", "불만", "제안", "기타"];
+  const [clicked, setClicked] = useState<string>(btnList[0]);
+
+  const toggleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setClicked(e.currentTarget.innerText);
+  };
+
   return (
     <QNAcontainer>
       <CategoryDropDown />
       <Detbox>질문 유형</Detbox>
+      <ButtonContainer>
+        {btnList.map((val, idx) => {
+          return (
+            <QuestionButton
+              key={idx}
+              className={clicked === val ? "active" : ""}
+              onClick={toggleButton}
+            >
+              {val}
+            </QuestionButton>
+          );
+        })}
+      </ButtonContainer>
     </QNAcontainer>
   );
 };
@@ -34,6 +54,27 @@ const DropDownImg = styled.img<{ clicked: boolean }>`
   margin-right: 10px;
   height: 25px;
   transform: ${(props) => (props.clicked ? "scaleY(-1)" : "")};
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 5px 20px 0px 20px;
+
+  .active {
+    background-color: rgb(221, 217, 195);
+    border: 4px solid gray;
+    color: black;
+  }
+`;
+
+const QuestionButton = styled.button`
+  border: none;
+  background-color: red;
+  color: white;
+  width: 18%;
+  height: 40px;
+  margin: 0 auto;
 `;
 
 const CategoryDropDown = () => {
@@ -168,4 +209,9 @@ const ListItem = styled.li`
   border-style: solid;
   border-color: black;
   border-width: 0px 1px 1px 1px;
+
+  :hover {
+    background-color: whitesmoke;
+    border: 1px solid gray;
+  }
 `;

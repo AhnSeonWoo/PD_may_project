@@ -11,7 +11,7 @@ import { Navbar } from "./components/Navbar";
 
 function App() {
   const [header, setHeader] = useState<string>("고객지원");
-  const [clicked, setClicked] = useState<number>(0);
+  const [clicked, setClicked] = useState<number>(1);
   return (
     <div className="App">
       <H1>{header}</H1>

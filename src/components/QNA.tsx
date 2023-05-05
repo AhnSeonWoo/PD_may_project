@@ -1,12 +1,40 @@
 import styled from "styled-components";
 import React, { useState } from "react";
+import { title } from "process";
 
 export const QNA = () => {
   const btnList = ["문의", "칭찬", "불만", "제안", "기타"];
   const [clicked, setClicked] = useState<string>(btnList[0]);
+  const [form, setForm] = useState({
+    title: "",
+    detail: "",
+    name: "",
+    number1: "",
+    number2: "",
+    email: "",
+  });
 
   const toggleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClicked(e.currentTarget.innerText);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name.includes("number")) {
+      if (/^\d*$/.test(e.target.value) && e.target.value.length <= 8) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+      }
+    } else setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const clearForm = () => {
+    setForm({
+      title: "",
+      detail: "",
+      name: "",
+      number1: "",
+      number2: "",
+      email: "",
+    });
   };
 
   return (
@@ -27,19 +55,71 @@ export const QNA = () => {
         })}
       </ButtonContainer>
       <Titlebox>제목</Titlebox>
-      <Titleinput></Titleinput>
+      <Titleinput
+        type="text"
+        name="title"
+        value={form.title}
+        onChange={handleChange}
+      ></Titleinput>
       <Detailbox>내용</Detailbox>
-      <Detailinput></Detailinput>
+      <Detailinput
+        type="text"
+        name="detail"
+        value={form.detail}
+        onChange={handleChange}
+      ></Detailinput>
       <Namebox>이름</Namebox>
-      <Nameinput></Nameinput>
+      <Nameinput
+        type="text"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+      ></Nameinput>
       <Numberbox>휴대폰 번호</Numberbox>
-      <Numberinput1></Numberinput1>
-      <Numberinput2></Numberinput2>
+      <Numberinput1
+        type="number"
+        name="number1"
+        value={form.number1}
+        onChange={handleChange}
+      ></Numberinput1>
+      <Numberinput2
+        type="tel"
+        name="number2"
+        value={form.number2}
+        onChange={handleChange}
+      ></Numberinput2>
       <Emailbox>이메일 주소</Emailbox>
-      <Emailinput></Emailinput>
+      <Emailinput
+        type="email"
+        name="email"
+        value={form.email}
+        placeholder="Paradise@paradian.com"
+        onChange={handleChange}
+      ></Emailinput>
+      <SubmitBtn
+        type="submit"
+        onClick={() => {
+          alert("정상적으로 등록되었습니다");
+          clearForm();
+        }}
+      >
+        등록
+      </SubmitBtn>
     </QNAcontainer>
   );
 };
+
+const SubmitBtn = styled.button`
+  width: 88%;
+  height: 60px;
+  background-color: rgb(221, 217, 195);
+  margin-top: 30px;
+  border: none;
+
+  :hover {
+    opacity: 0.7;
+  }
+`;
 
 const Emailbox = styled.div`
   display: flex;
@@ -51,7 +131,8 @@ const Emailbox = styled.div`
 const Emailinput = styled.input`
   width: 88%;
   height: 30px;
-  font-size: 20px;
+  font-size: 14px;
+  padding-left: 8px;
   border-radius: 0px;
   border: 1px solid;
 `;
@@ -99,6 +180,7 @@ const Detailinput = styled.input`
   width: 88%;
   height: 100px;
   font-size: 20px;
+
   border-radius: 0px;
   border: 1px solid;
 `;
@@ -128,6 +210,10 @@ const Titlebox = styled.div`
 const QNAcontainer = styled.div`
   margin-top: 16px;
   width: 100%;
+
+  & > input {
+    text-align: left;
+  }
 `;
 
 const Detbox = styled.div`
@@ -141,6 +227,11 @@ const DropContainer = styled.div`
   justify-content: space-between;
   padding-left: 30px;
   padding-right: 30px;
+
+  .disabled {
+      background-color: lightgray;
+    }
+  }
 `;
 
 const DropDownImg = styled.img<{ clicked: boolean }>`
@@ -177,6 +268,23 @@ const CategoryDropDown = () => {
   const [sisul, setSisul] = useState<string>("항목을 선택해 주세요");
   const [isOpenSebu, setIsOpenSebu] = useState<boolean>(false);
   const [sebu, setSebu] = useState<string>("항목을 선택해 주세요");
+
+  const category = {
+    "항목을 선택해 주세요": ["항목을 선택해 주세요"],
+    "PARADISE CITY": ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    "HOTEL PARADISE": ["상품/이벤트", "시설", "다이닝", "기타"],
+    "HOTEL ART PARADISO": ["시설", "다이닝", "기타"],
+    CASINO: ["객실", "상품/이벤트", "시설", "다이닝"],
+    CIMER: ["객실", "상품/이벤트", "시설"],
+    CHROMA: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    WONDERBOX: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    PLAZA: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    "PARADISE ART SPACE": ["객실", "시설", "다이닝", "기타"],
+    "STUDIO PARDISE": ["객실", "기타"],
+    "GROUP & WEDDINGS": ["시설", "다이닝", "기타"],
+    MEMBERSHIP: ["객실", "상품/이벤트", "시설", "기타"],
+  };
+
   const onToggleSisul = () => {
     setIsOpenSebu(false);
     setIsOpenSisul(!isOpenSisul);
@@ -211,51 +319,23 @@ const CategoryDropDown = () => {
       {isOpenSisul && (
         <DropDownBoxWrap>
           <DropDownContainer>
-            <>
-              <ListItem onClick={onOptionSisulClicked("PARADISE CITY", 1)}>
-                PARADISE CITY
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("HOTEL PARADISE", 2)}>
-                HOTEL PARADISE
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("HOTEL ART PARADISO", 3)}>
-                HOTEL ART PARADISO
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("CASINO", 4)}>
-                CASINO
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("CIMER", 5)}>
-                CIMER
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("CHROMA", 6)}>
-                CHROMA
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("WONDERBOX", 7)}>
-                WONDERBOX
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("PLAZA", 8)}>
-                PLAZA
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("PARADISE ART SPACE", 9)}>
-                PARADISE ART SPACE
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("STUDIO PARADISE", 10)}>
-                STUDIO PARADISE
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("GROUP & WEDDINGS", 11)}>
-                GROUP & WEDDINGS
-              </ListItem>
-              <ListItem onClick={onOptionSisulClicked("MEMBERSHIP", 12)}>
-                MEMBERSHIP
-              </ListItem>
-            </>
+            {Object.keys(category).map((el, i) => {
+              return (
+                <ListItem key={i} onClick={onOptionSisulClicked(el, i + 1)}>
+                  {el}
+                </ListItem>
+              );
+            })}
           </DropDownContainer>
         </DropDownBoxWrap>
       )}
       <div style={{ height: "5px" }}></div>
       <DropContainer>
         <span>세부 시설</span>
-        <CategoryMenuBox onClick={onToggleSebu}>
+        <CategoryMenuBox
+          onClick={onToggleSebu}
+          className={sisul === "항목을 선택해 주세요" ? "disabled" : ""}
+        >
           {sebu}
           <DropDownImg
             clicked={isOpenSebu}
@@ -264,21 +344,18 @@ const CategoryDropDown = () => {
           />
         </CategoryMenuBox>
       </DropContainer>
-      {isOpenSebu && (
+      {isOpenSebu && sisul !== "항목을 선택해 주세요" && (
         <DropDownBoxWrap>
           <DropDownContainer>
-            <ListItem onClick={onOptionSebuClicked("발라드", 1)}>
-              발라드
-            </ListItem>
-            <ListItem onClick={onOptionSebuClicked("알앤비", 2)}>
-              알앤비
-            </ListItem>
-            <ListItem onClick={onOptionSebuClicked("랩", 3)}>랩</ListItem>
-            <ListItem onClick={onOptionSebuClicked("락", 4)}>락</ListItem>
-            <ListItem onClick={onOptionSebuClicked("트로트", 5)}>
-              트로트
-            </ListItem>
-            <ListItem onClick={onOptionSebuClicked("인디", 6)}>인디</ListItem>
+            {sisul &&
+              //@ts-ignore
+              category[sisul].map((el, i) => {
+                return (
+                  <ListItem onClick={onOptionSebuClicked(el, i + 1)}>
+                    {el}
+                  </ListItem>
+                );
+              })}
           </DropDownContainer>
         </DropDownBoxWrap>
       )}

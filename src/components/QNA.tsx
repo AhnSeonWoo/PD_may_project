@@ -1,7 +1,29 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { title } from "process";
-
+import {
+  ButtonContainer,
+  CategoryMenuBox,
+  Detailbox,
+  Detailinput,
+  Detbox,
+  DropContainer,
+  DropDownBoxWrap,
+  DropDownContainer,
+  DropDownImg,
+  Emailbox,
+  Emailinput,
+  ListItem,
+  Namebox,
+  Nameinput,
+  Numberinput1,
+  Numberinput2,
+  QNAcontainer,
+  QuestionButton,
+  SubmitBtn,
+  Titlebox,
+  Titleinput,
+} from "../styled-components/styledQNA";
 export const QNA = () => {
   const btnList = ["문의", "칭찬", "불만", "제안", "기타"];
   const [clicked, setClicked] = useState<string>(btnList[0]);
@@ -75,7 +97,7 @@ export const QNA = () => {
         value={form.name}
         onChange={handleChange}
       ></Nameinput>
-      <Numberbox>휴대폰 번호</Numberbox>
+      <Namebox>휴대폰 번호</Namebox>
       <Numberinput1
         type="number"
         name="number1"
@@ -109,180 +131,45 @@ export const QNA = () => {
   );
 };
 
-const SubmitBtn = styled.button`
-  width: 88%;
-  height: 60px;
-  background-color: rgb(221, 217, 195);
-  margin-top: 30px;
-  border: none;
-
-  :hover {
-    opacity: 0.7;
-  }
-`;
-
-const Emailbox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-`;
-
-const Emailinput = styled.input`
-  width: 88%;
-  height: 30px;
-  font-size: 14px;
-  padding-left: 8px;
-  border-radius: 0px;
-  border: 1px solid;
-`;
-
-const Numberinput1 = styled.input`
-  width: 18%;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 0px;
-  border: 1px solid;
-  margin-right: 5%;
-`;
-
-const Numberinput2 = styled.input`
-  width: 65%;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 0px;
-  border: 1px solid;
-`;
-
-const Numberbox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-`;
-
-const Nameinput = styled.input`
-  width: 88%;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 0px;
-  border: 1px solid;
-`;
-
-const Namebox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-`;
-
-const Detailinput = styled.input`
-  width: 88%;
-  height: 100px;
-  font-size: 20px;
-
-  border-radius: 0px;
-  border: 1px solid;
-`;
-
-const Detailbox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-`;
-
-const Titleinput = styled.input`
-  width: 88%;
-  height: 30px;
-  font-size: 20px;
-  border-radius: 0px;
-  border: 1px solid;
-`;
-
-const Titlebox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-  margin-bottom: 6px;
-`;
-
-const QNAcontainer = styled.div`
-  margin-top: 16px;
-  width: 100%;
-
-  & > input {
-    text-align: left;
-  }
-`;
-
-const Detbox = styled.div`
-  display: flex;
-  padding-left: 30px;
-  margin-top: 12px;
-`;
-
-const DropContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-left: 30px;
-  padding-right: 30px;
-
-  .disabled {
-      background-color: lightgray;
-    }
-  }
-`;
-
-const DropDownImg = styled.img<{ clicked: boolean }>`
-  width: 20px;
-  align-self: flex-end;
-  margin-right: 10px;
-  height: 25px;
-  transform: ${(props) => (props.clicked ? "scaleY(-1)" : "")};
-`;
-
-const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 5px 20px 0px 20px;
-
-  .active {
-    background-color: rgb(221, 217, 195);
-    border: 4px solid gray;
-    color: black;
-  }
-`;
-
-const QuestionButton = styled.button`
-  border: none;
-  background-color: #9d896a;
-  color: white;
-  width: 18%;
-  height: 40px;
-  margin: 0 auto;
-`;
-
 const CategoryDropDown = () => {
   const [isOpenSisul, setIsOpenSisul] = useState<boolean>(false);
   const [sisul, setSisul] = useState<string>("항목을 선택해 주세요");
   const [isOpenSebu, setIsOpenSebu] = useState<boolean>(false);
-  const [sebu, setSebu] = useState<string>("항목을 선택해 주세요");
+  const [sebu, setSebu] = useState<string>("시설을 선택해 주세요");
 
   const category = {
     "항목을 선택해 주세요": ["항목을 선택해 주세요"],
-    "PARADISE CITY": ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
-    "HOTEL PARADISE": ["상품/이벤트", "시설", "다이닝", "기타"],
-    "HOTEL ART PARADISO": ["시설", "다이닝", "기타"],
-    CASINO: ["객실", "상품/이벤트", "시설", "다이닝"],
-    CIMER: ["객실", "상품/이벤트", "시설"],
-    CHROMA: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
-    WONDERBOX: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
-    PLAZA: ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
-    "PARADISE ART SPACE": ["객실", "시설", "다이닝", "기타"],
-    "STUDIO PARDISE": ["객실", "기타"],
-    "GROUP & WEDDINGS": ["시설", "다이닝", "기타"],
-    MEMBERSHIP: ["객실", "상품/이벤트", "시설", "기타"],
+    "HOTEL PARADISE": ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    "HOTEL ART PARADISO": ["객실", "상품/이벤트", "시설", "다이닝", "기타"],
+    CASINO: ["게임", "상품/이벤트", "카지노멤버십/포인트", "기타서비스"],
+    CIMER: [
+      "상품/이벤트",
+      "F&B",
+      "입장권/요금",
+      "제휴할인",
+      "이벤트/액티비티",
+      "기타",
+    ],
+    WONDERBOX: [
+      "시설이용",
+      "이벤트/액티비티",
+      "입장권/요금",
+      "F&B",
+      "제휴할인",
+      "기타",
+    ],
+    PLAZA: ["매장이용", "입점문의", "기타"],
+    "PARADISE ART SPACE": ["전시", "입장권/요금", "이벤트/액티비티", "기타"],
+    "STUDIO PARDISE": ["행사/이벤트", "대관", "시설", "기타"],
+    WEDDINGS: ["견적", "서비스", "기타"],
+    MEMBERSHIP: [
+      "파라다이스 리워즈 포인트",
+      "파라다이스 시그니처",
+      "크로마 VIP",
+      "카지노",
+      "EVENT MEMBERSHIP CLUB",
+    ],
+    기타: ["기타"],
   };
 
   const onToggleSisul = () => {
@@ -364,49 +251,3 @@ const CategoryDropDown = () => {
 };
 
 export default CategoryDropDown;
-
-const CategoryMenuBox = styled.div`
-  width: 259px;
-  font-weight: 80%;
-  font-size: 18px;
-  text-align: left;
-  padding-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-`;
-
-const DropDownBoxWrap = styled.div`
-  position: absolute;
-  width: 400px;
-  padding-right: 30px;
-  display: flex;
-  justify-content: flex-end;
-`;
-
-const DropDownContainer = styled.ul`
-  width: 70%;
-  height: 100%;
-  z-index: 1;
-  list-style: none;
-  overflow-y: scroll;
-`;
-
-const ListItem = styled.li`
-  position: relative;
-  text-align: left;
-  width: 100%;
-  font-size: 18px;
-  padding-left: 10px;
-  z-index: 1;
-  background: white;
-  border-style: solid;
-  border-color: black;
-  border-width: 0px 1px 1px 1px;
-
-  :hover {
-    background-color: #9d896a;
-    border: 1px solid gray;
-    color: white;
-  }
-`;

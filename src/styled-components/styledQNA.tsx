@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const SubmitBtn = styled.button`
   width: 88%;
   height: 60px;
-  background-color: rgb(221, 217, 195);
+  background-color: #9d896a;
   margin-top: 30px;
   border: none;
-
+  font-size: 16px;
+  color: white;
   :hover {
     opacity: 0.7;
   }
@@ -17,6 +18,7 @@ export const Emailbox = styled.div`
   padding-left: 30px;
   margin-top: 12px;
   margin-bottom: 6px;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Emailinput = styled.input`
@@ -26,23 +28,26 @@ export const Emailinput = styled.input`
   padding-left: 8px;
   border-radius: 0px;
   border: 1px solid;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Numberinput1 = styled.input`
   width: 18%;
   height: 30px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 0px;
   border: 1px solid;
   margin-right: 5%;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Numberinput2 = styled.input`
   width: 65%;
   height: 30px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 0px;
   border: 1px solid;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Numberbox = styled.div`
@@ -50,14 +55,16 @@ export const Numberbox = styled.div`
   padding-left: 30px;
   margin-top: 12px;
   margin-bottom: 6px;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Nameinput = styled.input`
   width: 88%;
   height: 30px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 0px;
   border: 1px solid;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Namebox = styled.div`
@@ -65,15 +72,16 @@ export const Namebox = styled.div`
   padding-left: 30px;
   margin-top: 12px;
   margin-bottom: 6px;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Detailinput = styled.input`
   width: 88%;
   height: 100px;
-  font-size: 20px;
-
+  font-size: 16px;
   border-radius: 0px;
   border: 1px solid;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Detailbox = styled.div`
@@ -86,9 +94,10 @@ export const Detailbox = styled.div`
 export const Titleinput = styled.input`
   width: 88%;
   height: 30px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 0px;
   border: 1px solid;
+  border-color: rgb(221, 217, 195);
 `;
 
 export const Titlebox = styled.div`
@@ -101,6 +110,7 @@ export const Titlebox = styled.div`
 export const QNAcontainer = styled.div`
   margin-top: 16px;
   width: 100%;
+  color: #9d896a;
 
   & > input {
     text-align: left;
@@ -140,7 +150,7 @@ export const ButtonContainer = styled.div`
 
   .active {
     background-color: rgb(221, 217, 195);
-    border: 4px solid gray;
+    border: 4px solid #9d896a;
     color: black;
   }
 `;
@@ -160,9 +170,10 @@ export const CategoryMenuBox = styled.div`
   font-size: 18px;
   text-align: left;
   padding-left: 10px;
+  color: black;
   display: flex;
   justify-content: space-between;
-  border: 1px solid black;
+  border: 1px solid rgb(221, 217, 195);
 `;
 
 export const DropDownBoxWrap = styled.div`
@@ -170,6 +181,7 @@ export const DropDownBoxWrap = styled.div`
   width: 400px;
   padding-right: 30px;
   display: flex;
+  color: black;
   justify-content: flex-end;
 `;
 
@@ -190,7 +202,7 @@ export const ListItem = styled.li`
   z-index: 1;
   background: white;
   border-style: solid;
-  border-color: black;
+  border-color: rgb(221, 217, 195);
   border-width: 0px 1px 1px 1px;
 
   :hover {

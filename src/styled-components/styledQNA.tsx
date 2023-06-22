@@ -7,7 +7,7 @@ export const SubmitBtn = styled.button`
   margin-top: 30px;
   border: none;
   font-size: 16px;
-  color: white;
+  color: black;
   :hover {
     opacity: 0.7;
   }
